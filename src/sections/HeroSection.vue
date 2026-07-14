@@ -129,10 +129,23 @@ const orbs = [
   }
 }
 
+// No celular o conteúdo fica centralizado sob a foto; no desktop volta à esquerda
+.hero__content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include up($bp-lg) {
+    text-align: left;
+    display: block;
+  }
+}
+
 .hero__title {
-  font-size: fluid(44, 92);
+  font-size: fluid(42, 92);
   letter-spacing: -0.03em;
-  margin-block: 1.5rem 1.6rem;
+  margin-block: clamp(1.1rem, 3vw, 1.5rem) clamp(1.1rem, 3vw, 1.6rem);
 
   em {
     font-style: italic;
@@ -151,22 +164,41 @@ const orbs = [
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2.2rem;
+  margin-top: clamp(1.8rem, 4vw, 2.2rem);
+
+  // Botões empilhados em largura total no celular — alvo de toque generoso
+  @include down($bp-md) {
+    flex-direction: column;
+    width: min(100%, 360px);
+
+    :deep(.btn) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 }
 
 .hero__stats {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1.5rem, 5vw, 3rem);
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
-  padding-top: 2rem;
+  margin-top: clamp(2.2rem, 5vw, 3.5rem);
+  padding-top: clamp(1.5rem, 4vw, 2rem);
   border-top: 1px solid var(--c-line);
+
+  // Três colunas simétricas no celular
+  @include down($bp-md) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    width: 100%;
+  }
 }
 
 .hero__stat {
   dt {
     font-family: var(--font-display);
-    font-size: fluid(28, 40);
+    font-size: fluid(26, 40);
     color: var(--c-ink);
     line-height: 1;
   }
@@ -176,6 +208,12 @@ const orbs = [
     letter-spacing: 0.04em;
     color: var(--c-ink-soft);
     max-width: 14ch;
+
+    @include down($bp-md) {
+      margin-inline: auto;
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
   }
 }
 
@@ -249,8 +287,17 @@ const orbs = [
     letter-spacing: 0.03em;
     color: var(--c-ink-soft);
   }
-  @include down($bp-sm) {
-    left: 0;
+
+  // Compacto e afastado do rosto no celular
+  @include down($bp-md) {
+    top: 2%;
+    left: -4%;
+    gap: 0.3rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 14px;
+    span {
+      font-size: 0.62rem;
+    }
   }
 }
 
@@ -284,8 +331,26 @@ const orbs = [
     font-size: 0.74rem;
     color: var(--c-ink-soft);
   }
-  @include down($bp-sm) {
-    right: 0;
+
+  // Compacto no celular
+  @include down($bp-md) {
+    bottom: 3%;
+    right: -4%;
+    gap: 0.55rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 14px;
+
+    .hero__badge-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+    }
+    strong {
+      font-size: 0.76rem;
+    }
+    span {
+      font-size: 0.62rem;
+    }
   }
 }
 
