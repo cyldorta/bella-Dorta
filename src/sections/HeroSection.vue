@@ -63,7 +63,7 @@ const orbs = [
       <div class="hero__visual">
         <div class="hero__portrait" :style="{ transform: parallax }">
           <img
-            :src="images.portraitSyringe2"
+            :src="images.portraitSmile"
             :alt="`${brand.name}, biomédica esteta especializada em microvasos`"
             width="560"
             height="720"
