@@ -1,10 +1,12 @@
 // ── Brand & contact ───────────────────────────────────────────
-// IMPORTANT: replace WHATSAPP_NUMBER with the real number (country + DDD).
-// Format: digits only, e.g. 5585999999999  (55 = Brasil, 85 = DDD).
-export const WHATSAPP_NUMBER = '5579999091819'
+// Número da Infinity (salão onde a Izabella atende): +55 79 7400-2734
+// Format: digits only (55 = Brasil, 79 = DDD).
+export const WHATSAPP_NUMBER = '557974002734'
 
+// A saudação (bom dia/boa tarde/boa noite) é adicionada dinamicamente
+// em useWhatsApp.ts, conforme o horário do visitante.
 export const WHATSAPP_DEFAULT_MESSAGE =
-  'Olá, Dra. Izabella! Vim pela landing page e gostaria de agendar uma avaliação para tratamento de microvasos.'
+  'Vim através da landing page da Dra. Izabella e gostaria de mais informações sobre o tratamento de microvasos.'
 
 export const brand = {
   name: 'Dra. Izabella Dorta',
