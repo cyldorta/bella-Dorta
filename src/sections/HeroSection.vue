@@ -99,7 +99,7 @@ const orbs = [
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding-top: clamp(7rem, 14vw, 10rem);
+  padding-top: clamp(5.5rem, 12vw, 10rem);
   padding-bottom: clamp(3rem, 8vw, 6rem);
   background:
     radial-gradient(120% 90% at 80% 0%, #f7efe6 0%, var(--c-cream) 42%, #efe2d4 100%);
@@ -122,7 +122,7 @@ const orbs = [
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: clamp(3rem, 7vw, 5rem);
+  gap: clamp(2.25rem, 6vw, 5rem);
 
   @include up($bp-lg) {
     grid-template-columns: 1.05fr 0.95fr;
@@ -183,7 +183,16 @@ const orbs = [
 .hero__visual {
   position: relative;
   justify-self: center;
-  width: min(100%, 520px);
+  // No celular a foto vem primeiro e um pouco menor, para caber na 1ª tela
+  width: min(84%, 340px);
+  order: -1;
+  margin-bottom: 0.5rem;
+
+  @include up($bp-lg) {
+    width: min(100%, 520px);
+    order: 0;
+    margin-bottom: 0;
+  }
 }
 
 .hero__portrait {
