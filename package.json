@@ -1,0 +1,24 @@
+{
+  "name": "dra-izabella-dorta",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Landing page premium — Dra. Izabella Dorta · Tratamento para Microvasos",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "lenis": "^1.1.18",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "sass": "^1.83.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vue-tsc": "^2.1.10"
+  }
+}

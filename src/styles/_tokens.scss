@@ -1,0 +1,46 @@
+@use 'sass:math';
+
+// ─── Breakpoints ─────────────────────────────────────────────
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;
+$bp-3xl: 1920px;
+
+@mixin up($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin down($bp) {
+  @media (max-width: ($bp - 1px)) {
+    @content;
+  }
+}
+
+// Fluid type helper: clamp between two viewport widths
+@function fluid($min, $max, $vw-min: 360, $vw-max: 1440) {
+  $slope: math.div($max - $min, $vw-max - $vw-min);
+  $intercept: $min - $slope * $vw-min;
+  @return clamp(
+    #{$min}px,
+    #{$intercept}px + #{$slope * 100}vw,
+    #{$max}px
+  );
+}
+
+@mixin glass($opacity: 0.55, $blur: 22px) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(140%);
+  -webkit-backdrop-filter: blur($blur) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+@mixin glass-dark($opacity: 0.06, $blur: 22px) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(130%);
+  -webkit-backdrop-filter: blur($blur) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
